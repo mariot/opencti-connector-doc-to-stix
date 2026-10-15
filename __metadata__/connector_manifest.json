@@ -1,0 +1,22 @@
+{
+  "title": "Doc to STIX",
+  "slug": "doc-to-stix",
+  "description": "Reads the document attached to an entity (PDF, HTML, text: a threat report, an advisory) with a language model, and enriches the entity with what the document states: intrusion sets, threat actors, malware, tools, MITRE ATT&CK techniques, CVEs, targeted sectors and countries, indicators and observables, and the relationships between them. On a container (report, grouping, case) the objects are added to it; on an intrusion set, malware or campaign the facts are attached to that entity. Runs on a local model (Ollama) or Claude.",
+  "short_description": "Enrich an entity with the threat intelligence of its attached document.",
+  "logo": null,
+  "use_cases": ["Threat Intelligence"],
+  "solution_categories": ["Threat Intelligence Platform"],
+  "license_type": "Free",
+  "contact": "mariot.tsitoara@filigran.io",
+  "verified": false,
+  "last_verified_date": null,
+  "playbook_supported": true,
+  "max_confidence_level": 50,
+  "support_version": ">=7.261008.0",
+  "subscription_link": null,
+  "source_code": "https://github.com/mariot/opencti-connector-doc-to-stix",
+  "manager_supported": false,
+  "container_version": "rolling",
+  "container_image": "opencti/connector-doc-to-stix",
+  "container_type": "INTERNAL_ENRICHMENT"
+}

@@ -1,0 +1,20 @@
+services:
+  connector-doc-to-stix:
+    image: opencti/connector-doc-to-stix:latest
+    build: .
+    environment:
+      - OPENCTI_URL=http://opencti:8080
+      - OPENCTI_TOKEN=CHANGEME
+      - CONNECTOR_ID=CHANGEME # a UUIDv4
+      - CONNECTOR_NAME=Doc to STIX
+      - CONNECTOR_SCOPE=Report,Grouping,Case-Incident,Case-Rfi,Case-Rft,Intrusion-Set,Threat-Actor-Group,Campaign,Malware,Tool,Incident
+      - CONNECTOR_AUTO=false # enrich on request: extraction takes minutes per document
+      - CONNECTOR_LOG_LEVEL=info
+      - CONNECTOR_MAX_TLP=TLP:AMBER # files above this marking are never sent to the model
+      # The model: Ollama (local, nothing leaves your network) ...
+      - DOC_TO_STIX_MODEL=qwen3:30b-a3b
+      - DOC_TO_STIX_OLLAMA_URL=http://ollama:11434
+      # ... or Claude (set the key; the model name then is a Claude model)
+      # - DOC_TO_STIX_ANTHROPIC_API_KEY=
+      - DOC_TO_STIX_MAX_FILES=1
+    restart: always

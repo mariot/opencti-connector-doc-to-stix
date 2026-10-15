@@ -1,0 +1,19 @@
+opencti:
+  url: 'http://localhost:8080'
+  token: 'ChangeMe'
+
+connector:
+  type: 'INTERNAL_ENRICHMENT'
+  id: 'ChangeMe'
+  name: 'Doc to STIX'
+  scope: 'Report,Grouping,Case-Incident,Case-Rfi,Case-Rft,Intrusion-Set,Threat-Actor-Group,Campaign,Malware,Tool,Incident'
+  log_level: 'info'
+  auto: false
+  max_tlp: 'TLP:AMBER'
+
+doc_to_stix:
+  model: 'qwen3:30b-a3b'
+  ollama_url: 'http://localhost:11434'
+  anthropic_api_key: ''
+  author: 'doc-to-stix'
+  max_files: 1

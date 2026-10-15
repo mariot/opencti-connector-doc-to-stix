@@ -45,8 +45,11 @@ Diplomacy, indicators that indicate it).
 
 ## Model
 
-- **Ollama** (default): `qwen3:30b-a3b`, or the fine-tuned doc-to-stix model
-  when it is published. Needs a 32k context (`OLLAMA_CONTEXT_LENGTH=32768`).
+- **Ollama** (default): `qwen3:30b-a3b`, the most accurate local model measured
+  on doc-to-stix's 22-document gold set: **0.723** (entities F1 0.82,
+  relationships 0.47, observables 0.88). A fine-tuned Qwen3-8B (LoRA v2b,
+  distilled from it) scores 0.646 with a third of the memory; it is not
+  published yet. Needs a 32k context (`OLLAMA_CONTEXT_LENGTH=32768`).
   Extraction takes a few minutes per document on a laptop-class GPU, which is
   why `auto` is off.
 - **Claude**: set `DOC_TO_STIX_ANTHROPIC_API_KEY` and a Claude model name.
